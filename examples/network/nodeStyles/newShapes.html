@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+  <title>Vis Network | Node Styles | Shapes</title>
+
+  <style type="text/css">
+    #mynetwork {
+      width: 1000px;
+      height: 600px;
+      border: 1px solid lightgray;
+    }
+  </style>
+
+  <script type="text/javascript" src="../../../standalone/umd/vis-network.min.js"></script>
+  <!-- script type="text/javascript" src="../../../dist/vis-network.js"></script -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!-- link rel="stylesheet" href="../../../dist/dist/vis-network.css" -->
+
+  <script type="text/javascript">
+    var nodes = null;
+    var edges = null;
+    var network = null;
+
+    function draw() {
+      nodes = [
+        {id: 1, font: {size: 20},          label: 'circle',  shape: 'circle', x: 200, y: 150},
+        {id: 2, font: {size: 30}, size:40, label: 'hexagon', shape: 'hexagon', x: 500, y: 150},
+        {id: 3, font: {size: 30}, size:40, label: 'big square',  shape: 'square', x: 500, y: 350},
+        {id: 4, font: {size: 30},          label: 'toast', shape: 'toast', x: 800, y: 150},
+      ];
+
+      edges = [
+        {from: 1, to: 2, arrows: { to: { enabled: true}}},
+        {from: 2, to: 3, arrows: { to: { enabled: true}}},
+        {from: 3, to: 4, arrows: { to: { enabled: true}}},
+        {from: 1, to: 3, arrows: { to: { enabled: true}}, x: 800, y: 150}
+      ];
+
+      // create a network
+      var container = document.getElementById('mynetwork');
+      var data = {
+        nodes: nodes,
+        edges: edges
+      };
+      var options = {
+        interaction: {
+          zoomView: false, selectConnectedEdges: false, hoverConnectedEdges: false, hover: true, navigationButtons: true, selectable: true,
+        },
+        physics: {
+          enabled: false
+        },
+      };
+      network = new vis.Network(container, data, options);
+    }
+  </script>
+
+
+<body onload="draw()">
+
+<div id="mynetwork"></div>
+
+<div id="info"></div>
+</body>
+</html>

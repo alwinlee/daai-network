@@ -14,7 +14,8 @@ const shapes = [
   "star",
   "text",
   "triangle",
-  "triangleDown"
+  "triangleDown",
+  "toast"
 ] as const;
 
 const variantGroups: any[][] = [

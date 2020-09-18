@@ -47,11 +47,11 @@
         {id: 32, font:{size:30}, size:40, label: 'big star',    shape: 'star'},
         {id: 33, font:{size:30}, size:40, label: 'big hexagon', shape: 'hexagon'},
         {id: 34, font:{size:30},          label: 'icon square', shape: 'square', icon: {code:'\uf164'} },
-        {id: 35, font:{size:30},          label: 'icon dot',    shape: 'dot',    icon: {code:'\uf165'} },   
+        {id: 35, font:{size:30},          label: 'icon dot',    shape: 'dot',    icon: {code:'\uf165'} },
         {
-          id: 36, 
-          label: 'custom', 
-          shape: 'custom', 
+          id: 36,
+          label: 'custom',
+          shape: 'custom',
           ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
             const r = style.size;
             const drawNode = () => {
@@ -65,25 +65,25 @@
               ctx.closePath();
               ctx.save();
               ctx.fillStyle = 'red';
-              ctx.fill(); 
+              ctx.fill();
               ctx.stroke();
               ctx.restore();
-              
+
               ctx.font = "normal 12px sans-serif";
               ctx.fillStyle = 'black';
               ctx.fillText('custom shape', x - r + 10, y, 2 * r - 20);
             }
             return {
-              drawNode, 
+              drawNode,
               nodeDimensions: { width: 2*r, height: 2*r }
-            } 
+            }
           }
 
-        },  
+        },
         {
-          id: 37, 
-          label: 'FIELD---my value', 
-          shape: 'custom', 
+          id: 37,
+          label: 'FIELD---my value',
+          shape: 'custom',
           group: 'a',
           ctxRenderer: ({ ctx, x, y, state: { selected, hover }, style, label }) => {
             const splittedLabel = label.split('---')
@@ -127,7 +127,7 @@
             ctx.closePath();
             ctx.save();
             ctx.fillStyle = style.color || '#56CCF2';
-            ctx.fill(); 
+            ctx.fill();
             ctx.strokeStyle = '#FFFFFF';
             ctx.stroke();
 
@@ -147,16 +147,17 @@
             ctx.fillText(valueText, left + w / 2, top + h / 2  + hPadding, w);
 
             }
-            
+
             ctx.save();
             ctx.restore();
             return {
-              drawNode, 
+              drawNode,
               nodeDimensions: { width:w, height: h }
-            } 
+            }
 
           }
-        },        
+        },
+        {id: 38, font:{size:30}, label: 'toast', shape: 'toast'},
       ];
 
       edges = [
@@ -173,7 +174,7 @@
       network = new vis.Network(container, data, options);
     }
   </script>
-  
+
 
 <body onload="draw()">
 

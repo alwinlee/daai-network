@@ -14,6 +14,7 @@ const INTERNAL_LABEL_SHAPES = new Set<string>([
   "database",
   "ellipse",
   "text",
+  "toast",
 ]);
 
 const EXTERNAL_LABEL = new Array(15)
