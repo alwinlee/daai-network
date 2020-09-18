@@ -5,9 +5,10 @@
 
   <style type="text/css">
     #mynetwork {
-      width: 1000px;
+      width: 100%;
       height: 600px;
       border: 1px solid lightgray;
+      background-image: url('../../../lib/assets/grid.png');
     }
   </style>
 
@@ -23,10 +24,10 @@
 
     function draw() {
       nodes = [
-        {id: 1, font: {size: 20},          label: 'circle',  shape: 'circle', x: 200, y: 150},
-        {id: 2, font: {size: 30}, size:40, label: 'hexagon', shape: 'hexagon', x: 500, y: 150},
-        {id: 3, font: {size: 30}, size:40, label: 'big square',  shape: 'square', x: 500, y: 350},
-        {id: 4, font: {size: 30},          label: 'toast', shape: 'toast', x: 800, y: 150},
+        {id: 1, font: { size: 20},          label: 'circle',  shape: 'circle', x: 200, y: 150},
+        {id: 2, font: { size: 30}, size:40, label: 'hexagon', shape: 'hexagon', x: 500, y: 150},
+        {id: 3, font: { size: 30}, size:40, label: 'big square',  shape: 'square', x: 500, y: 350},
+        {id: 4, font: { size: 14, color: '#606060', face: 'arial', align: 'left' }, label: '', shape: 'toast', x: 800, y: 150},
       ];
 
       edges = [
