@@ -18,6 +18,7 @@ import Text from "../lib/network/modules/components/nodes/shapes/Text";
 import Triangle from "../lib/network/modules/components/nodes/shapes/Triangle";
 import TriangleDown from "../lib/network/modules/components/nodes/shapes/TriangleDown";
 import Toast from "../lib/network/modules/components/nodes/shapes/Toast";
+import Gate from "../lib/network/modules/components/nodes/shapes/Gate";
 
 describe("Node Shapes", function(): void {
   const generateOptions = (): any => ({
@@ -324,7 +325,18 @@ describe("Node Shapes", function(): void {
     {
       name: "Toast",
       Clazz: Box,
-      distanceToBorder: 42,
+      distanceToBorder: 51,
+      boundingBox: {
+        bottom: -924,
+        left: -128,
+        right: 128,
+        top: -979
+      }
+    },
+    {
+      name: "Gate",
+      Clazz: Box,
+      distanceToBorder: 52,
       boundingBox: {
         bottom: -924,
         left: -128,

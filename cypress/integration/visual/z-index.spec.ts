@@ -15,6 +15,7 @@ const INTERNAL_LABEL_SHAPES = new Set<string>([
   "ellipse",
   "text",
   "toast",
+  "gate",
 ]);
 
 const EXTERNAL_LABEL = new Array(15)
