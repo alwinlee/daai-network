@@ -116,7 +116,7 @@ class Image extends EndPoint {
         ctx,
         1, // scale
         -width / 2, // x
-        0, // y
+        -height / 2, // y
         width,
         height
       );
