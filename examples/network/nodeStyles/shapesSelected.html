@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+  <title>Vis Network | Node Styles | Shapes</title>
+
+  <style type="text/css">
+    #mynetwork {
+      width: 1000px;
+      height: 500px;
+      border: 1px solid lightgray;
+    }
+  </style>
+
+  <script type="text/javascript" src="../../../standalone/umd/vis-network.min.js"></script>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  <script type="text/javascript">
+    var nodes = null;
+    var edges = null;
+    var network = null;
+
+    function draw() {
+      nodes = [
+        {id: 1, font:{size:30}, size: 40, label: '', shape: 'box'   , margin: {left: 15, top: 15, right: 15, bottom: 15 },  x: 100, y: 100},
+        {id: 2, font:{size:30}, size: 40, label: '', shape: 'square', margin: {left: 5, top: 5, right: 5, bottom: 5 }, x: 300, y: 300},
+        {id: 3, font:{size:30}, size: 40, label: '', shape: 'hexagon', x: 400, y: 100},
+      ];
+
+      edges = [
+        { id: 12, from: 1, to: 2,
+          arrows: {
+            to: { enabled: true},
+            middle: {
+              enabled: true,
+              type: "image",
+              imageWidth: 24,
+              imageHeight: 24,
+              src:
+                "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' style='width:24px;height:24px' viewBox='0 0 24 24'%3E%3Cpath fill='%23000000' d='M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H9.18C9.6,1.84 10.7,1 12,1C13.3,1 14.4,1.84 14.82,3H19M12,8L7,13H10V17H14V13H17L12,8M12,3A1,1 0 0,0 11,4A1,1 0 0,0 12,5A1,1 0 0,0 13,4A1,1 0 0,0 12,3Z' /%3E%3C/svg%3E"
+            }
+          },
+          smooth: {
+            enabled: false,
+            type: 'vertical',
+            forceDirection: 'horizontal',
+            roundness: 0
+          },
+        },
+        {id: 23, from: 2, to: 3, arrows: { to: { enabled: true}},
+          smooth: {
+            enabled: false,
+            type: 'vertical',
+            forceDirection: 'horizontal',
+            roundness: 0
+          },
+        }
+      ];
+
+      // create a network
+      var container = document.getElementById('mynetwork');
+      var data = {
+        nodes: nodes,
+        edges: edges
+      };
+      var options = {
+        physics: {
+          enabled: false
+        },
+        interaction: {
+          navigationButtons: true,
+          selectable: true,
+          selectConnectedEdges: false,
+        }
+      };
+      network = new vis.Network(container, data, options);
+      network.on("afterDrawing", function (ctx) {
+        var sel = network.getSelectedNodes();
+        if (sel.length > 0) {
+          var nodeId = sel[0];
+          var bound = network.getBoundingBox(nodeId);
+          ctx.setLineDash([2, 2]);
+          ctx.strokeStyle = "#ff904d";
+          ctx.strokeRect(bound.left - 5, bound.top - 5, bound.right - bound.left + 10, bound.bottom - bound.top + 10);
+        }
+        var seledge = network.getSelectedEdges();
+        if (seledge.length > 0) {
+        }
+        /*
+        var nodeId = 1;
+        var nodePosition = network.getPositions([nodeId]);
+        ctx.strokeStyle = '#294475';
+        ctx.lineWidth = 4;
+        ctx.fillStyle = '#A6D5F7';
+
+        ctx.beginPath();
+        ctx.arc(
+          nodePosition[nodeId].x,
+          nodePosition[nodeId].y,
+          20,
+          0,
+          2 * Math.PI,
+          false
+        );
+        ctx.closePath();
+
+        ctx.fill();
+        ctx.stroke();
+        */
+      });
+    }
+  </script>
+
+
+<body onload="draw()">
+
+<p>
+  Nodes can have all sorts of shapes. Note the exception where the nodes with text inside and the text type's size are determined by the font size, not the node size.
+</p>
+<div id="mynetwork"></div>
+
+<div id="info"></div>
+</body>
+</html>
