@@ -137,6 +137,23 @@
         console.log(e)
 
       });
+
+
+      (document.querySelectorAll('#hide-button') || []).forEach(function (el) {
+        el.addEventListener('click', function (el) {
+          (document.querySelectorAll('.vis-button') || []).forEach(function (el) {
+            el.style.display = 'none';
+          });
+        });
+      });
+
+      (document.querySelectorAll('#show-button') || []).forEach(function (el) {
+        el.addEventListener('click', function (el) {
+          (document.querySelectorAll('.vis-button') || []).forEach(function (el) {
+            el.style.display = 'block';
+          });
+        });
+      });
     }
   </script>
 
@@ -148,6 +165,6 @@
 </p>
 <div id="mynetwork" style="background-image: url(../../../lib/assets/1601284414281.png);"></div>
 
-<div id="info"></div>
+<div id="info"><button id="hide-button">hide</button><button id="show-button">show</button></div>
 </body>
 </html>
