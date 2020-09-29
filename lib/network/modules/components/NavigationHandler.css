@@ -12,7 +12,6 @@ div.vis-network div.vis-navigation div.vis-round-panel {
     background-repeat:no-repeat;
     background-color: rgba(255, 255, 255, 0);
     background-image: inline("nav-bk.png");
-    cursor: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -33,7 +32,6 @@ div.vis-network div.vis-navigation div.vis-zoom-panel {
     background-repeat:no-repeat;
     background-color: rgba(255, 255, 255, 0);
     background-image: inline("zoom-bk.png");
-    cursor: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -52,7 +50,7 @@ div.vis-network div.vis-navigation div.vis-tool-box {
     display:inline-block;
     background-position: 0px 0px;
     background-repeat:no-repeat;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(196, 196, 196, 0.6);
 
     cursor: pointer;
     -webkit-touch-callout: none;
@@ -62,6 +60,47 @@ div.vis-network div.vis-navigation div.vis-tool-box {
     -ms-user-select: none;
     user-select: none;
     z-index: 0;
+}
+
+div.vis-network div.vis-navigation div.vis-tool-box span {
+  padding: 10px 8px 8px 9px;
+  text-decoration: none;
+  color: #818181;
+  display: block;
+  cursor: pointer;
+}
+
+div.vis-network div.vis-navigation div.vis-tool-box span:hover {
+  color: #6d6c6c;
+}
+
+.center {
+  text-align: center;
+}
+
+.config-menu-item {
+  background-image: inline("config.png");
+  width: 50px;
+  height: 50px;
+  padding: 3px;
+}
+
+.config-menu-item:hover {
+  background-image: inline("config-hover.png");
+  width: 50px;
+  height: 50px;
+  padding: 3px;
+}
+
+.config-menu-text {
+  font-size: 11px;
+  margin: 5px 0 0 0;
+}
+
+.config-menu-text:hover {
+  font-size: 11px;
+  margin: 5px 0 0 0;
+  color: #f00;
 }
 
 div.vis-network div.vis-navigation div.vis-button {
